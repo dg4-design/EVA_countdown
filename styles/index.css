@@ -2,8 +2,7 @@
 @font-face {
   font-family: "7segment";
   font-style: normal;
-  src: local("7segment"), url("./fonts/7segment.woff") format("woff"),
-    url("./fonts/7segment.ttf") format("truetype");
+  src: local("7segment"), url("../fonts/7segment.woff") format("woff"), url("../fonts/7segment.ttf") format("truetype");
 }
 
 button {
@@ -154,24 +153,12 @@ button.disabled {
 .power-system div:nth-child(3) {
   grid-row-start: 1;
   grid-row-end: 3;
-  background: repeating-linear-gradient(
-    -45deg,
-    red,
-    red 20px,
-    transparent 20px,
-    transparent 40px
-  );
+  background: repeating-linear-gradient(-45deg, red, red 20px, transparent 20px, transparent 40px);
 }
 button.disabled .power-system div:nth-child(3) {
   grid-row-start: 1;
   grid-row-end: 3;
-  background: repeating-linear-gradient(
-    -45deg,
-    hsla(360, 100%, 50%, 0.5),
-    hsla(360, 100%, 50%, 0.5) 20px,
-    transparent 20px,
-    transparent 40px
-  );
+  background: repeating-linear-gradient(-45deg, hsla(360, 100%, 50%, 0.5), hsla(360, 100%, 50%, 0.5) 20px, transparent 20px, transparent 40px);
 }
 .power-supply {
   height: 100%;
