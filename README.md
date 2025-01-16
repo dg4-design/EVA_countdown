@@ -1,15 +1,20 @@
 ## How to use
-``docker compose up -d``
+
+1. VSCode の拡張機能である Live Server をインストール
+2. このリポジトリをクローン
+3. VSCode で index.html を開く
+4. 右下の「Go Live」をクリック
 
 ## How to try
-- https://feles-ao42.github.io/EVA_countdown?daytime=202501231000&title=DEADLINE
-- URLにぞれぞれ
--   daytime：締切の日時をYYYYMMDDHHMM
--   title：任意の締切の名前
--   を書いて使ってください．
 
-## URL
-``localhost:3000/?daytime=202501231000&title=任意ノ締切``
+- URL にぞれぞれ
+- daytime：締切の日時を YYYYMMDDHHMM
+- title：任意の締切の名前
+- を書いて使ってください．
+
+`http://127.0.0.1:5500/?daytime=202501231000&title=任意ノ締切`
 
 ## Special thanks
+
 - https://github.com/iPolyomino/EVA-TIMER
+- https://github.com/feles-ao42/EVA_countdown
