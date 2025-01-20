@@ -29,10 +29,28 @@ const updateTimeText = (time) => {
   setTimer(formattedH, formattedM, formattedS, formattedMs);
 };
 
+const get5hoursLater = () => {
+  const currentDateTimePlus5Hour = new Date();
+  currentDateTimePlus5Hour.setHours(currentDateTimePlus5Hour.getHours() + 5);
+  const dateTimeplus5Formatted =
+    currentDateTimePlus5Hour.getFullYear() +
+    ("0" + (currentDateTimePlus5Hour.getMonth() + 1)).slice(-2) +
+    ("0" + currentDateTimePlus5Hour.getDate()).slice(-2) +
+    ("0" + currentDateTimePlus5Hour.getHours()).slice(-2) +
+    ("0" + currentDateTimePlus5Hour.getMinutes()).slice(-2);
+  return dateTimeplus5Formatted;
+};
+
 const getTargetDate = () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const daytime = urlParams.get("daytime") || "202501231000";
-  if (daytime.length !== 12) return null;
+  let daytime = urlParams.get("daytime");
+  if (!daytime || daytime.length !== 12) {
+    daytime = null;
+  }
+
+  if (daytime == null) {
+    daytime = get5hoursLater();
+  }
 
   const year = parseInt(daytime.substring(0, 4));
   const month = parseInt(daytime.substring(4, 6)) - 1;
@@ -117,7 +135,11 @@ const setupAction = () => {
   resetButton.addEventListener("click", resetAction);
 
   const urlParams = new URLSearchParams(window.location.search);
-  const titlevalue = urlParams.get("title");
+  let titlevalue = urlParams.get("title");
+  if (titlevalue == null) {
+    titlevalue = "締切まで";
+  }
+
   document.getElementById("title").textContent = titlevalue;
 
   targetDate = getTargetDate();
